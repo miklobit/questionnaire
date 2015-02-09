@@ -1,0 +1,37 @@
+
+
+plugin.tx_questionnaire_pi1 {
+    templateFile = EXT:questionnaire/pi1/questionnaire_template.tmpl
+    userIdentity = userId
+#   userIdentity = userIp
+#   userIdentity = cookie    
+    badMess = You must answer these questions:
+    compulsory = *
+    statistic {
+    	barMaxWidth = 200
+    	barHeight = 10
+    	barYesColor = 00ff00
+    	barNoColor = ff0000
+    }
+}
+
+  # Example of default set CSS styles (these go into the document header):
+plugin.tx_questionnaire_pi1._CSS_DEFAULT_STYLE (
+	.tx-questionnaire-pi1 { font-family: Verdana, Tahoma, Sans-serif; font-weight: normal; font-size: 10px; }
+        .tx-questionnaire-pi1-header {  background: #e0e0e0 ; padding: 5px; }
+	.tx-questionnaire-pi1-questionnaire {  border: 0px solid #808080 ; padding: 10px ; background: #ffffff; width: 100% }
+	.tx-questionnaire-pi1-question {  border: 0px solid #808080 ; padding: 5px; background: #e0e0e0;   }
+	.tx-questionnaire-pi1-question-visible {  border: 0px solid #808080 ; padding: 5px; background: #e0e0e0 ; visibility: visible;  }
+	.tx-questionnaire-pi1-question-hidden {  border: 0px solid #808080 ; padding: 5px; background: #e0e0e0; visibility: hidden;  }
+	.tx-questionnaire-pi1-empty {  font-weight: bold; color: #ff0000;   }
+	.tx-questionnaire-pi1-filled {  font-weight: bold; color: #000000;   }
+	.tx-questionnaire-pi1-required {  font-weight: bold; color: #ff0000;   }
+	.tx-questionnaire-pi1-buttons {  text-align: center   }
+	.tx-questionnaire-pi1-overview {  border: 1px solid #808080 ; padding: 10px ; background: #a6bab1; }
+	.tx-questionnaire-pi1-error {  color: #ff0000 ; padding: 10px;  background: #c8c8c8; border: 1px solid red ; text: bold ;}
+	.tx-questionnaire-pi1-statistic {  border: 0px solid #808080 ; padding: 10px ; background: #e0e0e0; width: 100% }		
+	.tx-questionnaire-pi1-statistic-item {  font-family: tahoma; font-size: 12px; margin-left: 20px;  }
+	.tx-questionnaire-pi1-statistic-contents {   }
+) 
+
+

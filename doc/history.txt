@@ -1,0 +1,61 @@
+Changes:
+
+2005.02.05
+	- version 1.0.0 finished
+2005.01.31
+	- BE: advanced query for answer lsit
+2005.01.28
+	- BE: printable version of all pages
+2005.01.26
+	- BE: added answer detail list 
+	- BE: added user filter 
+2005.01.25
+	- FE: added intro page with template
+	- BE: change questionnaire header field to RTE
+2005.01.24
+	- FE: fixed problem with empty pages if dependant questions are hidden
+	- BE: question wizard: question dependant only on preceding questions 
+2005.01.22
+	- FE: added template for user statistic
+2005.01.20
+	- BE: change tt_content  to use flexform field to store configuration 
+	- BE: flexform contains now: questionnaire record selector, display mode selector
+	- BE: added display mode selector for frontend: 
+ 		1. form only
+		2. statistic for user only
+		3. form first , then statistic ( when form complete )
+	- FE: added statistic for user 
+
+2005.01.14
+	- BE: added backend/export questionnaire data in csv format
+	- BE: added backend/display questionnaire statistic
+
+2005.01.08 
+	- FE: added html template support
+	- FE: added dependant question hide (javascript)
+	- FE: questionnaire validation code moved to server side ( because of problem with javascript detection of html elements visibility ) 
+
+2005.01.04 
+	- FE/BE: added support for all questons type
+
+2005.01.02 
+	- BE: removed table tx_questionnaire_questions -> whole questionaire definition put into tx_questionnaire_questionnaires
+	- BE: questionnaire definition in XML format
+	- BE: questionaire wizard added for field tx_questionnaire_quetionnaires.questions 
+	- BE: answer result in XML format
+	- BE: question dependency support
+
+2004.12.31 - initial version for Drecomm :
+	- BE: database tables: tx_questionnaire_questions, tx_questionnaire_quetionnaires, tx_questionnaire_answers
+	- BE: frontend plugin type "questionnaire"
+	- BE: backend module "web->questionnaire" framework
+	- BE/FE: yes/no questions handling
+	- FE: user identity selectable between userid and userip (TypoScript) 
+	- FE: protection against reediting completed questionnaire
+	- FE: css styled form 	(TypoScript)
+	- FE: multiply page form
+	- FE: overview page
+	- FE: javascript for checking compulsory fields
+
+
+	 

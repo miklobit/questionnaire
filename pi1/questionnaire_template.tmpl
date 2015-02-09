@@ -1,0 +1,371 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<TITLE>Questionnaire example template</TITLE>
+</head>
+
+<body>
+
+<br>
+<br>
+<br>
+<pre>
+<strong>Common markers:</strong>
+These are substituted in all templates:
+
+FEUSERNAME			- Frontend user logged in
+FEUSERIP			- Frontend user ip
+QUESTIONNAIRE_UID 	- ID number (uid) of the questionnaire item
+QUESTIONNAIRE_TITLE	- Questionnaire item title field
+QUESTIONNAIRE_HEADER- Questionnaire item header field
+COMPULSORY          - Compulsory question indicator
+
+
+<em>Global Subparts:</em>
+TEMPLATE_INTRO 		- Template for questionnaire intro page
+TEMPLATE_EDIT 		- Template for questionnaire edit form
+TEMPLATE_OVERVIEW	- Template for readonly user overview form 
+TEMPLATE_FINALIZE	- Template for final messages
+TEMPLATE_FILLED		- Template for user already filled questionnaire
+TEMPLATE_STATISTIC	- Template for questionnaire statistic for user
+
+CHOICES_YESNO_EDIT  - Template for question type "Yesno" in edit mode
+CHOICES_SINGLE_EDIT  - Template for question type "Single" in edit mode
+CHOICES_MULTI_EDIT  - Template for question type "multi" in edit mode
+CHOICES_MULTI_MULTI_EDIT  - Template for question type "multi_multi" in edit mode
+CHOICES_OPEN_EDIT  - Template for question type "open" in edit mode
+
+CHOICES_YESNO_VIEW  - Template for question type "Yesno" in overview mode
+CHOICES_SINGLE_VIEW  - Template for question type "Single" in overview mode
+CHOICES_MULTI_VIEW  - Template for question type "multi" in overview mode
+CHOICES_MULTI_MULTI_VIEW  - Template for question type "multi_multi" in overview mode
+CHOICES_OPEN_VIEW  - Template for question type "open" in overview mode
+
+</pre>
+
+
+
+
+<BR>
+<!-- ---------------------------------------------------------------------------------------------------- -->
+<h3>This is the template for questionnaire intro page.</h3>
+<!-- ---------------------------------------------------------------------------------------------------- -->
+
+
+<!-- ###TEMPLATE_INTRO### begin --> 
+	<!-- ###QUESTIONNAIRE### begin -->
+		<div class="tx-questionnaire-pi1-questionnaire">
+			<form method="post" action="###FORM_URL###" name="###FORM_NAME###" enctype="multipart/form-data">
+			<h4 class="tx-questionnaire-pi1-header">###QUESTIONNAIRE_HEADER###</h4>
+			###HIDDEN_FIELDS###		
+			<p class="tx-questionnaire-pi1-buttons">
+			   <!--###BUTTON_START### begin-->
+					<input type="submit" name="###BUTTON_START_NAME###" value="Start questionnaire">
+			   <!--###BUTTON_START### end-->			   		   		   
+			</p>
+			</form>
+		</div>
+	<!-- ###QUESTIONNAIRE### end -->		
+	<!-- ###QUESTIONNAIRE_MISSING### begin -->
+		<div class="tx-questionnaire-pi1-error">
+   		<h4>No questionnaire record selected</h4>
+		</div>
+	<!-- ###QUESTIONNAIRE_MISSING### end -->		
+<!-- ###TEMPLATE_INTRO### end -->		
+
+
+
+<BR>
+<!-- ---------------------------------------------------------------------------------------------------- -->
+<h3>This is the template for questionnaire in edit mode.</h3>
+<!-- ---------------------------------------------------------------------------------------------------- -->
+
+
+<!-- ###TEMPLATE_EDIT### begin -->
+	<!-- ###QUESTIONNAIRE### begin --> 
+		<div class="tx-questionnaire-pi1-questionnaire">
+			<form method="post" action="###FORM_URL###" name="###FORM_NAME###" enctype="multipart/form-data" ###FORM_VALIDATE###>
+			<h4 class="tx-questionnaire-pi1-header">###QUESTIONNAIRE_HEADER###</h4>
+			<!-- ###VALIDATION_MESSAGE### begin -->
+				<h4 class="tx-questionnaire-pi1-required">Please answer all compulsory questions (###COMPULSORY###)</h4>		
+			<!-- ###VALIDATION_MESSAGE### end -->
+			###HIDDEN_FIELDS###
+		
+			<!--###QUESTION_LIST### begin-->
+	  			<!--###QUESTION### begin-->
+	  			  <!--###QUESTION_VISIBLE### begin-->
+					<div id="###QUESTION_ELEM_ID###" class="tx-questionnaire-pi1-question-visible">
+				  <!--###QUESTION_VISIBLE### end-->	
+	  			  <!--###QUESTION_HIDDEN### begin-->
+					<div id="###QUESTION_ELEM_ID###" class="tx-questionnaire-pi1-question-hidden">
+				  <!--###QUESTION_HIDDEN### end-->					  
+				<p class="tx-questionnaire-pi1-question-contents">###QUESTION_ID###. ###QUESTION_CONTENTS### &nbsp <!--###QUESTION_COMPULSORY### begin--><b class="tx-questionnaire-pi1-required">###COMPULSORY###</b><!--###QUESTION_COMPULSORY### end--></p>	
+		   		###CHOICES###																																																			
+				</div>
+				<br>
+	  			<!--###QUESTION### end-->
+			<!--###QUESTION_LIST### end-->
+			<p class="tx-questionnaire-pi1-buttons">
+			   <!--###BUTTON_BACK### begin-->
+					<input type="submit" name="###BUTTON_BACK_NAME###" value="Back">
+			   <!--###BUTTON_BACK### end-->
+			   <!--###BUTTON_NEXT### begin-->
+					<input type="submit" name="###BUTTON_NEXT_NAME###" value="Next">
+			   <!--###BUTTON_NEXT### end-->	
+			   <!--###BUTTON_SAVE### begin-->
+					<input type="submit" name="###BUTTON_SAVE_NAME###" value="Save">
+			   <!--###BUTTON_SAVE### end-->	
+			   <!--###PAGE_NUMBERING### begin-->
+					 &nbsp &nbsp Page ###PAGE_NUM###/###PAGE_TOTAL###
+			   <!--###PAGE_NUMBERING### end-->			   		   		   
+			</p>
+			</form>
+		</div>
+	<!-- ###QUESTIONNAIRE### end -->		
+	<!-- ###QUESTIONNAIRE_MISSING### begin -->
+		<div class="tx-questionnaire-pi1-error">
+   		<h4>No questionnaire record selected</h4>
+		</div>
+	<!-- ###QUESTIONNAIRE_MISSING### end -->		
+<!-- ###TEMPLATE_EDIT### end -->		
+
+
+<!-- ---------------------------------------------------------------------------------------------------- -->
+<h3>This is the template for questionnaire readonly overview form .</h3>
+<!-- ---------------------------------------------------------------------------------------------------- -->
+
+<!-- ###TEMPLATE_OVERVIEW### begin --> 
+<div class="tx-questionnaire-pi1-questionnaire">
+	<form method="post" action="###FORM_URL###" name="###FORM_NAME###" enctype="multipart/form-data">
+		<h4 class="tx-questionnaire-pi1-header">###QUESTIONNAIRE_HEADER###</h4>
+		<h4 class="tx-questionnaire-pi1-header">Answers overview</h4>
+	    ###HIDDEN_FIELDS###		
+	<!--###QUESTION_LIST### begin-->
+		<!--###QUESTION### begin-->
+			<div class="tx-questionnaire-pi1-question">
+			<p class="tx-questionnaire-pi1-question-contents">###QUESTION_ID###. ###QUESTION_CONTENTS### <!--###QUESTION_COMPULSORY### begin--><b class="tx-questionnaire-pi1-required">###COMPULSORY###</b><!--###QUESTION_COMPULSORY### end--></p><br>	
+		  	###ANSWER###																																																
+			</div>
+			<br>
+		<!--###QUESTION### end-->
+	<!--###QUESTION_LIST### end-->
+		<p class="tx-questionnaire-pi1-buttons">
+		  <input type="submit" name="###BUTTON_BACK_NAME###" value="Back">&nbsp
+		  <input type="submit" name="###BUTTON_SAVE_NAME###" value="Save">
+		</p>
+	</form>
+</div>
+<!-- ###TEMPLATE_OVERVIEW### end -->
+
+
+<!-- ---------------------------------------------------------------------------------------------------- -->
+<h3>This is the template for questionnaire statistic .</h3>
+<!-- ---------------------------------------------------------------------------------------------------- -->
+
+<!-- ###TEMPLATE_STATISTIC### begin --> 
+<div class="tx-questionnaire-pi1-statistic">
+		<h4 class="tx-questionnaire-pi1-header">###QUESTIONNAIRE_HEADER###</h4>
+		<h4 class="tx-questionnaire-pi1-header">Statistic page</h4><br>	
+	<!--###STATISTIC_LIST### begin-->
+		<!--###STATISTIC_ITEM### begin-->
+			<div class="tx-questionnaire-pi1-statistic-item">
+			<p class="tx-questionnaire-pi1-statistic-contents">###QUESTION_ID###. ###QUESTION_CONTENTS### <!--###QUESTION_COMPULSORY### begin--><b class="tx-questionnaire-pi1-required">###COMPULSORY###</b><!--###QUESTION_COMPULSORY### end--></p><br>	
+			<table  class="tx-questionnaire-pi1-statistic-item">
+    		<!--###ROWS### begin--> 
+    		    <!--###ROW### begin-->    
+    		    	<tr>
+    		    		<td><p>###ROW_TEXT###</p></td>
+    		    		<td>&nbsp ###ROW_VALUE###</td>  
+		    		  	<td>
+		    		  		<table STYLE="font-family: tahoma; font-size: 12px">
+		    		  			<tr>
+		    		  				<td><img src="###BAR_IMAGE###" width="###BAR_WIDTH###" height="###BAR_HEIGHT###"></td><td>&nbsp ###BAR_VALUE### &nbsp</td>
+		    		  			</tr>
+		    		  		</table>
+		    		  	</td>	    		
+    		    	</tr>     
+    		    <!--###ROW### end-->
+    		<!--###ROWS### end-->  
+    		<!--###ROW_TOTAL### begin-->
+    		    	<tr>
+    		    		<td><p><b>###TOTAL_TEXT###</b></p></td>
+    		    		<td><b>&nbsp ###TOTAL_VALUE###</b></td>  
+    		    		<td>  </td>
+    		    	</tr>	    		
+    		<!--###ROW_TOTAL### end-->    		     		       																																																								    		       																																																								
+			</table>
+			<br><hr>
+			</div>
+		<!--###STATISTIC_ITEM### end-->
+	<!--###STATISTIC_LIST### end-->
+</div>
+<!-- ###TEMPLATE_STATISTIC### end -->
+
+<!-- ---------------------------------------------------------------------------------------------------- -->
+<h3>This is the template for final messages</h3>
+<!-- ---------------------------------------------------------------------------------------------------- -->
+
+<!-- ###TEMPLATE_FINALIZE### begin --> 
+<div class="tx-questionnaire-pi1-questionnaire">
+	<h4><a href="###FINAL_URL###">Your answers was saved</a></h4>
+</div>
+<!-- ###TEMPLATE_FINALIZE### end -->
+
+
+<!-- ---------------------------------------------------------------------------------------------------- -->
+<h3>This is the template if user has already filled questionaire</h3>
+<!-- ---------------------------------------------------------------------------------------------------- -->
+
+<!-- ###TEMPLATE_FILLED### begin --> 
+<div class="tx-questionnaire-pi1-questionnaire">
+  <!-- ###FOR_USER_ID### begin -->
+	<h4>User "###FEUSERNAME###" has already filled this questionnaire</h4>
+  <!-- ###FOR_USER_ID### end -->	
+  <!-- ###FOR_USER_IP### begin -->
+	<h4>User from ip ###FEUSERIP### has already filled this questionnaire</h4>
+  <!-- ###FOR_USER_IP### end -->	
+  <!-- ###FOR_COOKIE### begin -->
+	<h4>You have already filled this questionnaire</h4>
+  <!-- ###FOR_COOKIE### end -->	  
+</div>
+<!-- ###TEMPLATE_FILLED### end -->
+
+<!-- ---------------------------------------------------------------------------------------------------- -->
+<h3>Templates for each question type in edit mode</h3>
+<br>
+<!-- ---------------------------------------------------------------------------------------------------- -->
+
+<!--###CHOICES_YESNO_EDIT### begin--> 
+	<!--###ITEM_YES### begin-->    
+	    <input type="radio" name="###ITEM_NAME###" value="###ITEM_VALUE###" ###ITEM_CHECKED### ###ITEM_EVENTS###>###ITEM_LABEL### 
+	<!--###ITEM_YES### end-->  
+	<!--###ITEM_NO### begin-->    
+	    <input type="radio" name="###ITEM_NAME###" value="###ITEM_VALUE###" ###ITEM_CHECKED### ###ITEM_EVENTS###>###ITEM_LABEL###<br> 
+	<!--###ITEM_NO### end-->	         
+<!--###CHOICES_YESNO_EDIT### end-->
+
+
+<!--###CHOICES_SINGLE_EDIT### begin-->
+    <!--###ROWS### begin-->     
+	<!--###ROW### begin-->    
+	    <input type="radio" name="###ROW_NAME###" value="###ROW_VALUE###" ###ROW_CHECKED### ###ROW_EVENTS###>###ROW_LABEL###<br> 
+	<!--###ROW### end-->
+    <!--###ROWS### end-->           
+<!--###CHOICES_SINGLE_EDIT### end-->
+
+
+<!--###CHOICES_MULTI_EDIT### begin-->
+    <!--###ROWS### begin-->     
+	<!--###ROW### begin-->    
+	    <input type="checkbox" name="###ROW_NAME###" value="###ROW_VALUE###" ###ROW_CHECKED### >###ROW_LABEL###<br> 
+	<!--###ROW### end-->
+    <!--###ROWS### end-->           
+<!--###CHOICES_MULTI_EDIT### end-->
+
+
+<!--###CHOICES_MULTI_MULTI_EDIT### begin-->
+<table>
+    <!--###COL_HEADER### begin-->
+    <tr>
+	<td></td>
+	<!--###COL_HEADER_ITEMS###-->
+	    <!--###COL_HEADER_ITEM###-->
+		<td align="center">###COL_HEADER_VALUE###</td>
+	    <!--###COL_HEADER_ITEM###-->		 
+	<!--###COL_HEADER_ITEMS###-->
+    </tr>
+    <!--###COL_HEADER### end-->
+    <!--###ROWS### begin-->     
+	<!--###ROW### begin-->    
+	<tr>
+	    <td align="center">###ROW_LABEL###</td>
+	    <!--###ROW_ELEMS###-->
+		<!--###ROW_ELEM###-->
+		<td>
+		    <input type="radio" name="###ROW_ELEM_NAME###" value="###ROW_ELEM_VALUE###" ###ROW_ELEM_CHECKED###> 
+		</td>
+		<!--###ROW_ELEM###-->
+	    <!--###ROW_ELEMS###-->
+	</tr>
+	<!--###ROW### end-->
+    <!--###ROWS### end-->        
+</table>   
+<!--###CHOICES_MULTI_MULTI_EDIT### end-->
+
+
+<!--###CHOICES_OPEN_EDIT### begin--> 
+	    <textarea name="###ITEM_NAME###"  cols="###ITEM_COLS###" rows="###ITEM_ROWS###">###ITEM_VALUE###</textarea>          
+<!--###CHOICES_OPEN_EDIT### end-->
+
+<!-- ---------------------------------------------------------------------------------------------------- -->
+<h3>Templates for each question type in overview mode</h3>
+<br>
+<!-- ---------------------------------------------------------------------------------------------------- -->
+
+<!--###CHOICES_YESNO_VIEW### begin--> 
+    <!--###ANSWER_FILLED### begin--> 
+			<p><b class="tx-questionnaire-pi1-filled">###ITEM_LABEL###</b></p> 
+    <!--###ANSWER_FILLED### end--> 
+    <!--###ANSWER_EMPTY### begin-->     
+		<p><b class="tx-questionnaire-pi1-empty">No answer</b></p>
+    <!--###ANSWER_EMPTY### end-->         
+<!--###CHOICES_YESNO_VIEW### end-->
+
+
+<!--###CHOICES_SINGLE_VIEW### begin-->
+    <!--###ANSWER_FILLED### begin--> 
+			<p><b class="tx-questionnaire-pi1-filled">###ITEM_LABEL###</b></p> 
+    <!--###ANSWER_FILLED### end--> 
+    <!--###ANSWER_EMPTY### begin-->     
+		<p><b class="tx-questionnaire-pi1-empty">No answer</b></p>
+    <!--###ANSWER_EMPTY### end-->                       
+<!--###CHOICES_SINGLE_VIEW### end-->
+
+
+<!--###CHOICES_MULTI_VIEW### begin-->
+    <!--###ANSWER_FILLED### begin--> 
+      <!--###ROWS### begin-->     
+		<!--###ROW### begin-->    
+			<p><b class="tx-questionnaire-pi1-filled">###ROW_LABEL###</b></p> 
+		<!--###ROW### end-->
+      <!--###ROWS### end--> 
+    <!--###ANSWER_FILLED### end--> 
+    <!--###ANSWER_EMPTY### begin-->     
+		<p><b class="tx-questionnaire-pi1-empty">No answer</b></p>
+    <!--###ANSWER_EMPTY### end-->                         
+<!--###CHOICES_MULTI_VIEW### end-->
+
+
+<!--###CHOICES_MULTI_MULTI_VIEW### begin-->
+    <!--###ANSWER_FILLED### begin--> 
+      <!--###ROWS### begin-->        
+		<!--###ROW_FILLED### begin-->    
+			<p>###ROW_LABEL### : <b class="tx-questionnaire-pi1-filled">###ROW_VALUE###</b></p>
+		<!--###ROW_FILLED### end-->    
+		<!--###ROW_EMPTY### begin-->    
+			<p>###ROW_LABEL### : <b class="tx-questionnaire-pi1-empty"> empty </b></p>
+		<!--###ROW_EMPTY### end--> 
+      <!--###ROWS### end-->		   		
+    <!--###ANSWER_FILLED### end-->
+    <!--###ANSWER_EMPTY### begin-->     
+		<p><b class="tx-questionnaire-pi1-empty">No answer</b></p>
+    <!--###ANSWER_EMPTY### end-->        
+<!--###CHOICES_MULTI_MULTI_VIEW### end-->
+
+
+<!--###CHOICES_OPEN_VIEW### begin-->    
+    <!--###ANSWER_FILLED### begin--> 
+		<p><b class="tx-questionnaire-pi1-filled">###ITEM_VALUE###</b></p>
+    <!--###ANSWER_FILLED### end-->
+    <!--###ANSWER_EMPTY### begin-->     
+		<p><b class="tx-questionnaire-pi1-empty">No answer</b></p>
+    <!--###ANSWER_EMPTY### end-->        	           
+<!--###CHOICES_OPEN_VIEW### end-->
+
+
+
+
+
+</BODY>
+</HTML>
